@@ -1,9 +1,39 @@
 // Assignment code here
 
 function generatePassword() {
-  var criteria = prompt("Please select Criteria", "Right Here");
+  var password = "Password not generated"
+  var numLength;
+  var specialChar;
+  var criteria = prompt(
+    "Please type the following Number to include in your password:\n1. Length of the password\n2. Character types");
+    if (criteria == 1) {
+        numChar = wordLength();
+        if (numChar === 0) {
+          generatePassword();
+        }
+    }
+  return password;
+}
 
-  return criteria;
+function wordLength() {
+   var numLength = prompt("Please choose a length of at least 8 characters and no more than 128 characters");
+   if (numLength == null) {
+      var answer = confirm("Would you like to start from the beginning?");
+        if (answer) {
+          generatePassword();
+        } else {
+          return;
+        }
+   } else if (numLength == "") {
+      alert("Please choose a number from 8 to 128");
+      wordLength();
+   } else if (numLength < 8 || numLength > 128) {;
+      alert("Please choose a number from 8 to 128");
+      wordLength();
+  } else {
+      return numLength;
+  }
+  return numLength;
 }
 
 
