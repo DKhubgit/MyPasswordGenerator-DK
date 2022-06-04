@@ -1,5 +1,11 @@
 // Assignment code here
 
+function generatePassword() {
+  var criteria = prompt("Please select Criteria", "Right Here");
+
+  return criteria;
+}
+
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
