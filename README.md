@@ -30,3 +30,11 @@ THEN a password is generated that matches the selected criteria\
 
 WHEN the password is generated
 THEN the password is either displayed in an alert or written to the page\
+
+# What to expect?
+
+**Here are some screenshots!**
+
+[Initial page of the generator](./images/PasswordGen-screenshot1.png)\
+
+[Page shows the prompt after hitting generate password](./images/PasswordGen-screenshot2.PNG)
