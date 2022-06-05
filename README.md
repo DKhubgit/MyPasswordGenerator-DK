@@ -45,4 +45,4 @@ THEN the password is either displayed in an alert or written to the page
 
 GitHub: [https://github.com/DKhubgit/MyPasswordGenerator-DK](https://github.com/DKhubgit/MyPasswordGenerator-DK)  
 
-GitHub Pages: https://dkhubgit.github.io/MyPasswordGenerator-DK/(https://dkhubgit.github.io/MyPasswordGenerator-DK/)  
+GitHub Pages: [https://dkhubgit.github.io/MyPasswordGenerator-DK/](https://dkhubgit.github.io/MyPasswordGenerator-DK/)  
