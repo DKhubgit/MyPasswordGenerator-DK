@@ -11,13 +11,16 @@ numericLetters = numericLetters.split('');
 specialLetters = specialLetters.split('');
 
 var characters = [lowerLetters, upperLetters, numericLetters, specialLetters];
+var stringCriteria = ["Lowercase letters", "Uppercase Letters", "Numerical", "Special Characters"]
 
 var numChar = 0;
 var specialChar = 0;
+var selectedCriteria ='';
 
 //initial prompt
 function generatePassword() {
   var password1 = "Password not generated"
+  var selectedCriteria ='';
   var criteria = prompt(
     "Please type the following Number to include in your password:\n1. Length of the password\n2. Character types");
     if (criteria == 1) {
@@ -36,8 +39,17 @@ function generatePassword() {
     } else if (numChar === 0 || specialChar === 0) {
       return password1;
     }
-      console.log("creating password: ")
-      password1 = createPassword(numChar, specialChar);
+
+    password1 = createPassword(numChar, specialChar);
+
+    // for (var i = 0; i < specialChar.length; ++i) {
+    //   if (specialChar[i] === 1) {
+    //     selectedCriteria = selectedCriteria + "\n" + stringCriteria[i];
+    //   }
+    // }
+
+    // alert("Password has a length of " + numChar + " with these criteria: " + selectedCriteria)
+      
     return password1;
 }
 
@@ -106,6 +118,17 @@ function getRandNum(x) {
   return num;
 }
 
+function selections() {
+  for (var i = 0; i < specialChar.length; ++i) {
+    if (specialChar[i] === 1) {
+      selectedCriteria = selectedCriteria + "\n" + stringCriteria[i];
+    }
+  }
+
+  alert("Your Password has a length of " + numChar + " with these criteria: " + selectedCriteria)
+
+}
+
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
@@ -116,6 +139,9 @@ function writePassword() {
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
+
+  selections();
+
 
 }
 
