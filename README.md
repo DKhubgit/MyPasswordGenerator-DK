@@ -35,9 +35,9 @@ THEN the password is either displayed in an alert or written to the page\
 
 **Here are some screenshots!**
 
-[Initial page of the generator](./images/PasswordGen-screenshot1.png)\
+![Initial page of the generator](./images/PasswordGen-screenshot1.png)\
 
-[Page shows the prompt after hitting generate password](./images/PasswordGen-screenshot2.PNG)
+![Page shows the prompt after hitting generate password](./images/PasswordGen-screenshot2.PNG)
 
 # Links
 
