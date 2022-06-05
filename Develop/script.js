@@ -16,10 +16,11 @@ var stringCriteria = ["Lowercase letters", "Uppercase Letters", "Numerical", "Sp
 var numChar = 0;
 var specialChar = 0;
 var selectedCriteria ='';
+var userTypesList = [0, 0, 0, 0];
 
 //initial prompt
 function generatePassword() {
-  var password1 = "Password not generated"
+  var password1 = "Password not generated due to insufficient info"
   var selectedCriteria ='';
   var criteria = prompt(
     "Please type the following Number to include in your password:\n1. Length of the password\n2. Character types");
@@ -27,28 +28,25 @@ function generatePassword() {
       numChar = promptLength();
     } else if (criteria == 2) {
       specialChar = promptTypes();
-    } else {
+    } else if (criteria === null) {
       return password1;
+    } else {
+      alert ("Please choose an appropriate number or press cancel")
+      generatePassword();
     }
+    console.log(specialChar);
 
     //Creating the password after getting user inputs
     //user might not input either prompts so we ask if they want a different criteria
     var askAgain = confirm("Would you like to add a different criteria?");
     if (askAgain) {
       generatePassword();
-    } else if (numChar === 0 || specialChar === 0) {
+    } else if (numChar === 0) {
       return password1;
     }
 
     password1 = createPassword(numChar, specialChar);
 
-    // for (var i = 0; i < specialChar.length; ++i) {
-    //   if (specialChar[i] === 1) {
-    //     selectedCriteria = selectedCriteria + "\n" + stringCriteria[i];
-    //   }
-    // }
-
-    // alert("Password has a length of " + numChar + " with these criteria: " + selectedCriteria)
       
     return password1;
 }
@@ -72,6 +70,7 @@ function promptLength() {
 
 //prompt for choosing whether or not to include special character types. Returns an array.
 function promptTypes() {
+  var count= 0;
   var typesList = [
     confirm("Would you like to include 'LOWERCASE' letters?\n 'YES' press 'OK || 'NO' press 'cancel'"),
     confirm("Would you like to include 'UPPERCASE' letters\n 'YES' press 'OK || 'NO' press 'cancel'"),
@@ -79,12 +78,17 @@ function promptTypes() {
     confirm("Would you like to include 'SPECIAL CHARACTERS'?\n 'YES' press 'OK || 'NO' press 'cancel'")
   ]
   var userTypes;
-  var userTypesList = [0, 0, 0, 0];
   for (var i = 0; i < typesList.length; ++i) {
     userTypes = typesList[i];
     if (userTypes) {
       userTypesList[i] = 1;
+    } else {
+      count++;
     }
+  }
+  if (count == 4) {
+    alert("Please choose at least one criteria")
+    promptTypes();
   }
   return userTypesList;
 }
@@ -118,6 +122,7 @@ function getRandNum(x) {
   return num;
 }
 
+//alerts the user of their selections
 function selections() {
   for (var i = 0; i < specialChar.length; ++i) {
     if (specialChar[i] === 1) {
@@ -141,7 +146,6 @@ function writePassword() {
   passwordText.value = password;
 
   selections();
-
 
 }
 
