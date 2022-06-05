@@ -1,5 +1,6 @@
 // Assignment code here
 
+//global variables
 var lowerLetters = "abcdefghijklmnopqrstuvwxyz";
 var upperLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 var numericLetters = "1234567890";
@@ -34,10 +35,8 @@ function generatePassword() {
       alert ("Please choose an appropriate number or press cancel")
       generatePassword();
     }
-    console.log(specialChar);
 
-    //Creating the password after getting user inputs
-    //user might not input either prompts so we ask if they want a different criteria
+    //we use the confirm prompt after every user selection.
     var askAgain = confirm("Would you like to add a different criteria?");
     if (askAgain) {
       generatePassword();
@@ -45,6 +44,7 @@ function generatePassword() {
       return password1;
     }
 
+    //Creating the password after getting user inputs
     password1 = createPassword(numChar, specialChar);
 
       
@@ -86,6 +86,7 @@ function promptTypes() {
       count++;
     }
   }
+  //if user did not choose any criteria
   if (count == 4) {
     alert("Please choose at least one criteria")
     promptTypes();
@@ -93,12 +94,12 @@ function promptTypes() {
   return userTypesList;
 }
 
-//using randomization lets create password using data passed in.
+//using randomization lets create password using data passed in. (number, array)
 function createPassword(newLength, newTypes) {
   var userLetters = [];
   var newPassword = "";
 
-  //Go through array newTypes and group together each type of characters the user wanted to include.
+  //Go through array newTypes and concatenate each type of characters the user wanted to include to a new array.
   //The newTypes array is a list of elements with either 0 or 1, 1 referring to yes and 0 to no.
   //UserLetters then lists all the characters that user wants.
   for (var i = 0; i < newTypes.length; i++) {
