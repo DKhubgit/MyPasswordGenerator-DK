@@ -17,7 +17,7 @@ var specialChar = 0;
 
 //initial prompt
 function generatePassword() {
-  var password = "Password not generated"
+  var password1 = "Password not generated"
   var criteria = prompt(
     "Please type the following Number to include in your password:\n1. Length of the password\n2. Character types");
     if (criteria == 1) {
@@ -25,12 +25,8 @@ function generatePassword() {
     } else if (criteria == 2) {
       specialChar = promptTypes();
     } else {
-      return password;
+      return password1;
     }
-
-    console.log(numChar);
-    console.log(specialChar);
-    console.log("end");
 
     //Creating the password after getting user inputs
     //user might not input either prompts so we ask if they want a different criteria
@@ -38,13 +34,11 @@ function generatePassword() {
     if (askAgain) {
       generatePassword();
     } else if (numChar === 0 || specialChar === 0) {
-      return password;
-    } else {
-      console.log("creating password: ")
-      password = createPassword(numChar, specialChar);
-      console.log(password);
-      return password;
+      return password1;
     }
+      console.log("creating password: ")
+      password1 = createPassword(numChar, specialChar);
+    return password1;
 }
 
 //prompt for choosing the length of the password, returns a number.
