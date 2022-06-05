@@ -38,3 +38,7 @@ THEN the password is either displayed in an alert or written to the page\
 [Initial page of the generator](./images/PasswordGen-screenshot1.png)\
 
 [Page shows the prompt after hitting generate password](./images/PasswordGen-screenshot2.PNG)
+
+# Links
+
+GitHub: [https://github.com/DKhubgit/MyPasswordGenerator-DK](https://github.com/DKhubgit/MyPasswordGenerator-DK)\
